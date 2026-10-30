@@ -3,14 +3,13 @@ import os
 import shutil
 
 import galaxy_ie_helpers
-
 from bioblend.galaxy.histories import HistoryClient
 
-hid = os.environ.get('DATASET_HID', None)
-history_id = os.environ['HISTORY_ID']
-if hid not in ('None', None):
+hid = os.environ.get("DATASET_HID", None)
+history_id = os.environ["HISTORY_ID"]
+if hid not in ("None", None):
     galaxy_ie_helpers.get(int(hid))
-    shutil.copy('/import/%s' % hid, '/import/ipython_galaxy_notebook.ipynb')
+    shutil.copy("/import/%s" % hid, "/import/ipython_galaxy_notebook.ipynb")
 
 additional_ids = os.environ.get("ADDITIONAL_IDS", "")
 if additional_ids:
